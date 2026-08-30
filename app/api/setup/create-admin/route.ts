@@ -27,29 +27,18 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email, password, name } = body
 
-    // التحقق من البريد
     if (!email || typeof email !== 'string') {
-      return NextResponse.json(
-        { error: 'البريد الإلكتروني مطلوب' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'البريد الإلكتروني مطلوب' }, { status: 400 })
     }
 
     const emailLower = email.toLowerCase()
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(emailLower)) {
-      return NextResponse.json(
-        { error: 'صيغة البريد الإلكتروني غير صحيحة' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'صيغة البريد الإلكتروني غير صحيحة' }, { status: 400 })
     }
 
-    // التحقق من كلمة المرور
     if (!password || typeof password !== 'string') {
-      return NextResponse.json(
-        { error: 'كلمة المرور مطلوبة' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'كلمة المرور مطلوبة' }, { status: 400 })
     }
 
     if (password.length < 8) {
@@ -59,7 +48,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // التحقق من قوة كلمة المرور
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
     if (!passwordRegex.test(password)) {
       return NextResponse.json(
@@ -71,12 +59,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // التحقق من الاسم
     if (!name || typeof name !== 'string') {
-      return NextResponse.json(
-        { error: 'اسم المسؤول مطلوب' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'اسم المسؤول مطلوب' }, { status: 400 })
     }
 
     // 3️⃣ التحقق من وجود هذا البريد من قبل
@@ -87,17 +71,15 @@ export async function POST(request: NextRequest) {
       .limit(1)
 
     if (existingUser.length > 0) {
-      // حذف الحساب القديم
       const userId = existingUser[0].id
       await db.delete(account).where(eq(account.userId, userId))
       await db.delete(user).where(eq(user.id, userId))
     }
 
-    // 4️⃣ تجزئة كلمة المرور بشكل يدوي باستخدام crypto
-    // استخدام Base64 لتجزئة مؤقتة (في الإنتاج استخدم bcrypt)
+    // 4️⃣ تجزئة كلمة المرور (Base64 مؤقتًا)
     const passwordHash = Buffer.from(password).toString('base64')
 
-    // 5️⃣ إنشاء المستخدم مباشرة في قاعدة البيانات
+    // 5️⃣ إنشاء المستخدم
     const newUserId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
 
     const result = await db.insert(user).values({
@@ -118,18 +100,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 6️⃣ إنشاء الحساب (account) مع كلمة المرور
+    // 6️⃣ إنشاء الحساب بدون createdAt / updatedAt (لأنها defaultNow)
     const accountId = `account_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-    
+
     await db.insert(account).values({
       id: accountId,
       userId: newUserId,
       accountId: emailLower,
       providerId: 'credential',
-      issuer: 'local:credential',
-      password: passwordHash,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      password: passwordHash
     })
 
     // 7️⃣ إرجاع الاستجابة الناجحة
@@ -150,7 +129,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('[Setup Admin Error]', error)
     const errorMessage = error instanceof Error ? error.message : 'خطأ غير معروف'
-    
+
     return NextResponse.json(
       {
         error: 'حدث خطأ في إنشاء الحساب',
