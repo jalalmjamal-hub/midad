@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     // 4️⃣ تجزئة كلمة المرور (Base64 مؤقتًا)
     const passwordHash = Buffer.from(password).toString('base64')
 
-    // 5️⃣ إنشاء المستخدم
+    // 5️⃣ إنشاء المستخدم بدون createdAt / updatedAt (لأنها defaultNow)
     const newUserId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
 
     const result = await db.insert(user).values({
@@ -88,9 +88,7 @@ export async function POST(request: NextRequest) {
       name: name,
       emailVerified: true,
       role: 'manager',
-      banned: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      banned: false
     }).returning()
 
     if (!result || result.length === 0) {
