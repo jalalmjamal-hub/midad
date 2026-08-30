@@ -2,7 +2,7 @@
 
 import { db } from '@/lib/db'
 import { user } from '@/lib/db/schema'
-import { hashPassword } from 'better-auth'
+import { hash } from 'better-auth/password'
 import { eq } from 'drizzle-orm'
 
 export async function createAdminUser(
@@ -22,7 +22,7 @@ export async function createAdminUser(
     }
 
     // تجزئة كلمة المرور
-    const hashedPassword = await hashPassword(password)
+    const hashedPassword = await hash(password)
 
     // إنشاء المستخدم
     await db.insert(user).values({
