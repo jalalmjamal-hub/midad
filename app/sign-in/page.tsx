@@ -11,7 +11,7 @@ export default function SignInPage() {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setLoading(true); setError('')
     const form = new FormData(event.currentTarget)
-    const result = await signIn.email({ email: String(form.get('email')), password: String(form.get('password')) })
+    const result = await signIn.credentials({ email: String(form.get('email')), password: String(form.get('password')) })
     if (result.error) setError('بيانات الدخول غير صحيحة')
     else { router.push('/'); router.refresh() }
     setLoading(false)
