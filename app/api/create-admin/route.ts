@@ -24,7 +24,7 @@ export async function GET() {
     // إنشاء user.id عشوائي
     const userId = crypto.randomUUID()
 
-    // تشفير كلمة المرور بطريقة متوافقة مع BetterAuth
+    // تشفير كلمة المرور
     const hashedPassword = await bcrypt.hash(password, 10)
 
     // إنشاء المستخدم في جدول user
@@ -35,8 +35,7 @@ export async function GET() {
       role: 'manager',
       emailVerified: true,
       banned: false,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      // createdAt و updatedAt لها default — لا نرسلها
     })
 
     // إنشاء الحساب في جدول account
@@ -46,9 +45,8 @@ export async function GET() {
       providerId: 'credentials',
       issuer: 'local:credential',
       userId: userId,
-      password: hashedPassword, // ← ← ← هنا الحل الحقيقي
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      password: hashedPassword,
+      // createdAt و updatedAt لها default — لا نرسلها
     })
 
     return NextResponse.json({ success: true })
