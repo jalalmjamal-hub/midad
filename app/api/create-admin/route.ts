@@ -11,7 +11,6 @@ export async function GET() {
     const password = '123456'
     const name = 'مدير النظام'
 
-    // تحقق إذا المستخدم موجود
     const existingUser = await db
       .select()
       .from(user)
@@ -21,13 +20,9 @@ export async function GET() {
       return NextResponse.json({ message: 'المستخدم موجود بالفعل' })
     }
 
-    // إنشاء user.id عشوائي
     const userId = crypto.randomUUID()
-
-    // تشفير كلمة المرور
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    // إنشاء المستخدم في جدول user
     await db.insert(user).values({
       id: userId,
       name,
@@ -35,10 +30,8 @@ export async function GET() {
       role: 'manager',
       emailVerified: true,
       banned: false,
-      // createdAt و updatedAt لها default — لا نرسلها
     })
 
-    // إنشاء الحساب في جدول account
     await db.insert(account).values({
       id: crypto.randomUUID(),
       accountId: email,
@@ -46,14 +39,13 @@ export async function GET() {
       issuer: 'local:credential',
       userId: userId,
       password: hashedPassword,
-      // createdAt و updatedAt لها default — لا نرسلها
     })
 
     return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error(error)
+  } catch (error: any) {
+    console.error("CREATE ADMIN ERROR:", error)
     return NextResponse.json(
-      { error: 'فشل في إنشاء الحساب' },
+      { error: String(error) },
       { status: 500 }
     )
   }
