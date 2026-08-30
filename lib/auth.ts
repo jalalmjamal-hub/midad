@@ -3,7 +3,9 @@ import { admin } from 'better-auth/plugins'
 import { pool } from '@/lib/db'
 
 export const auth = betterAuth({
-  database: pool,
+  database: {
+  client: pool
+}
   baseURL: process.env.BETTER_AUTH_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.V0_RUNTIME_URL),
   emailAndPassword: { enabled: true, autoSignIn: true },
   plugins: [admin({ adminRoles: ['manager'], roles: { manager: {} } })],
