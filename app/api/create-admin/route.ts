@@ -3,7 +3,6 @@ import { db } from '@/lib/db'
 import { user, account } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 import crypto from 'crypto'
-import bcrypt from 'bcryptjs'
 
 export async function GET() {
   try {
