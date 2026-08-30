@@ -1,0 +1,1798 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-cairo), Arial, sans-serif;
+  --font-serif: var(--font-naskh), Georgia, serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.975 0.008 110);
+  --foreground: oklch(0.22 0.03 155);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 155);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 155);
+  --primary: oklch(0.38 0.09 157);
+  --primary-foreground: oklch(0.985 0.01 110);
+  --secondary: oklch(0.93 0.025 112);
+  --secondary-foreground: oklch(0.3 0.04 155);
+  --muted: oklch(0.95 0.012 110);
+  --muted-foreground: oklch(0.52 0.025 155);
+  --accent: oklch(0.92 0.04 110);
+  --accent-foreground: oklch(0.3 0.04 155);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.89 0.02 110);
+  --input: oklch(0.86 0.02 110);
+  --ring: oklch(0.5 0.08 157);
+  --success: oklch(0.5 0.13 145);
+  --warning-foreground: oklch(0.55 0.12 75);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* شاشة عرض الشهادة: مطابقة لتوزيع النموذج المرجعي */
+.certificate-document {
+  direction: rtl;
+  background: #e4f4fb;
+  color: #164f38;
+  border-radius: 0.75rem;
+}
+
+.certificate-letterhead {
+  min-height: 84px;
+  background: #126b3f;
+  border-radius: 16px;
+  padding: 14px 20px;
+  direction: ltr;
+}
+
+.certificate-letterhead > div {
+  direction: rtl;
+  text-align: right;
+}
+
+.certificate-letterhead img {
+  height: 42px;
+  width: 104px;
+  object-fit: contain;
+}
+
+.certificate-red-rule {
+  height: 4px;
+  margin: 8px 20px 14px;
+  border-radius: 999px;
+  background: #d71920;
+}
+
+.certificate-document table {
+  direction: rtl;
+  table-layout: fixed;
+  font-size: 0.78rem;
+}
+
+.certificate-document th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.certificate-document td {
+  vertical-align: middle;
+}
+
+.certificate-card {
+  border: 1px solid #159157;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 20px;
+}
+
+.certificate-section-title {
+  border-right: 3px solid #d71920;
+  padding-right: 10px;
+  color: #145b3b;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.certificate-document table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #c8d1d3;
+}
+
+.certificate-document th {
+  background: #0b5738;
+  color: #fff;
+  font-weight: 800;
+}
+
+.certificate-document th,
+.certificate-document td {
+  border: 1px solid #c8d1d3;
+  padding: 8px 10px;
+  text-align: right;
+}
+
+.certificate-page-break {
+  margin-top: 1rem;
+  border-top: 1px dashed #159157;
+  padding-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .certificate-document { padding: 12px !important; }
+  .certificate-letterhead { padding: 12px; }
+  .certificate-letterhead img { width: 100px; }
+  .certificate-card { padding: 14px; }
+}
+
+/* مطابقة عرض الشاشة مع قالب HTML المرسل */
+.certificate-document > .certificate-red-rule + div {
+  display: none !important;
+}
+
+.certificate-document > .certificate-red-rule + div + div {
+  display: block !important;
+  min-height: 190px;
+}
+
+.certificate-document > .certificate-red-rule + div + div + div {
+  display: block !important;
+}
+
+.certificate-document {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px !important;
+  background: #e4f4fb !important;
+  color: #145b3b;
+  direction: rtl;
+  text-align: right;
+}
+
+.certificate-document > .certificate-letterhead {
+  min-height: 84px;
+  margin: 0;
+  padding: 14px 20px;
+  background: #126b3f !important;
+  border-radius: 15px;
+  direction: ltr;
+}
+
+.certificate-document > .certificate-letterhead img {
+  width: 126px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.certificate-document > .certificate-letterhead > div {
+  direction: rtl;
+  text-align: right;
+}
+
+.certificate-document > .certificate-letterhead p:first-child {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.certificate-document > .certificate-letterhead p:last-child {
+  margin-top: 5px;
+  font-size: 0.75rem;
+}
+
+.certificate-document > .certificate-red-rule {
+  height: 4px;
+  margin: -22px 20px 14px;
+  background: #d71920;
+  border-radius: 999px;
+}
+
+/* المرحلة الأولى: لوحة العرض المطابقة للنموذج، لا نستخدم بطاقة بيانات إضافية داخل الرأس */
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 28px;
+  min-height: 82px;
+  padding-top: 38px;
+}
+
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div::before {
+  content: 'بيانات المالك';
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  border-right: 3px solid #d71920;
+  padding-right: 10px;
+  color: #145b3b;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div > div:last-child {
+  display: none;
+}
+
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div + div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 28px;
+  border: 1px solid #159157;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 20px;
+}
+
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div + div::before {
+  content: 'بيانات العقار';
+  grid-column: 1 / -1;
+  border-right: 3px solid #d71920;
+  padding-right: 10px;
+  color: #145b3b;
+  font-weight: 800;
+}
+
+.certificate-document > .certificate-letterhead + .certificate-red-rule + div + div + div {
+  margin-top: 0;
+}
+
+.certificate-document .certificate-page-break {
+  display: none;
+}
+
+.certificate-document > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+  border: 1px solid #159157;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 20px;
+}
+
+ .certificate-document h3,
+.certificate-document h4 {
+  color: #145b3b;
+  border-right: 3px solid #d71920;
+  padding-right: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* شاشة العرض: ترتيب مطابق للنموذج المرجعي، مستقل عن قالب الطباعة */
+.certificate-screen > .certificate-letterhead {
+  min-height: 84px;
+  padding: 12px 20px;
+}
+
+.certificate-screen > .certificate-letterhead img {
+  width: 112px;
+  height: 42px;
+}
+
+.certificate-screen > .certificate-red-rule {
+  margin: -18px 20px 12px;
+}
+
+.certificate-screen > .certificate-letterhead + .certificate-red-rule + div + div {
+  min-height: 0;
+  grid-template-columns: 1fr;
+  gap: 7px;
+  padding: 18px 20px;
+}
+
+.certificate-screen > .certificate-letterhead + .certificate-red-rule + div + div > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 22px;
+}
+
+.certificate-screen > .certificate-letterhead + .certificate-red-rule + div + div > div p {
+  margin: 0;
+}
+
+.certificate-screen > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+  padding: 18px 20px;
+}
+
+.certificate-screen table {
+  font-size: 0.72rem;
+}
+
+.certificate-screen table th,
+.certificate-screen table td {
+  padding: 7px 9px;
+}
+
+.certificate-document table th {
+  background: #0b5738 !important;
+  color: #fff !important;
+}
+
+/* قالب الطباعة: شهادة A4 مطابقة لنموذج الاعتماد */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+.print-certificate-only {
+  display: none;
+}
+
+/* قالب عرض الشهادة المستقل على الشاشة */
+.certificate-view { width: 100%; max-width: 760px; margin: 0 auto; padding: 12px; background: #e4f4fb; color: #145b3b; }
+.certificate-view__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 84px; padding: 12px 20px 16px; border-radius: 15px; background: #126b3f; color: #fff; direction: ltr; border-bottom: 4px solid #d71920; }
+.certificate-view__head img { width: 104px; height: 42px; object-fit: contain; }
+.certificate-view__head > div { direction: rtl; text-align: right; }
+.certificate-view__head h2 { margin: 0; font-size: 1.2rem; font-weight: 800; }
+.certificate-view__head p { margin: 5px 0 0; font-size: .75rem; }
+.certificate-view__card { margin-top: 14px; padding: 18px 20px; border: 1px solid #159157; border-radius: 15px; background: rgba(255,255,255,.8); }
+.certificate-view__card h3 { margin: 0 0 16px; padding-right: 10px; border-right: 3px solid #d71920; color: #145b3b; font-size: 1rem; font-weight: 800; }
+.certificate-view__details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; font-size: .82rem; }
+.certificate-view__details p { margin: 0; }
+.certificate-view__details span { display: block; margin-bottom: 3px; color: #6b8178; font-size: .7rem; }
+  .certificate-view__card > p, .certificate-view__card li { color: #64756e; font-size: .78rem; line-height: 1.9; }
+  .certificate-view__warranty-table-wrap { margin: 12px 0 8px; overflow-x: auto; }
+  .certificate-view__warranty-table { width: 100%; min-width: 560px; border-collapse: collapse; direction: rtl; color: #29483b; font-size: .72rem; text-align: center; }
+  .certificate-view__warranty-table th { padding: 8px 10px; background: #075c38; color: #fff; font-weight: 800; }
+  .certificate-view__warranty-table td { padding: 8px 10px; border: 1px solid #c8d2d0; background: rgba(255,255,255,.55); }
+  .certificate-view__warranty-table th:first-child, .certificate-view__warranty-table td:first-child { width: 20%; }
+  .certificate-view__warranty-table th:nth-child(2), .certificate-view__warranty-table td:nth-child(2) { width: 60%; }
+  .certificate-view__warranty-table th:last-child, .certificate-view__warranty-table td:last-child { width: 20%; }
+  .certificate-view__card ul { margin: 0; padding-right: 20px; }
+.certificate-view__verify { margin: 14px 0 0; color: #6b8178; font-size: .72rem; text-align: center; }
+.certificate-view__print { display: flex; width: 100%; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; border: 0; border-radius: 10px; background: #075c38; color: #fff; padding: 12px; font-weight: 700; }
+@media (max-width: 640px) { .certificate-view__details { grid-template-columns: 1fr; } .certificate-view__head { padding-inline: 14px;   }
+}
+
+/* الطباعة في صفحة واحدة: تضمين الشروط المختصرة بدل إنشاء صفحة ثانية */
+@media print {
+  .certificate-view {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    padding: 7mm !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2),
+  .certificate-view > .certificate-view__card:nth-of-type(3) {
+    display: block !important;
+    visibility: visible !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(3) {
+    margin-top: 4mm !important;
+    padding: 4mm 5mm !important;
+  }
+
+  .certificate-view > .certificate-print-page,
+  .certificate-view > .certificate-view__card:nth-of-type(4),
+  .certificate-view > .certificate-view__verify,
+  .certificate-view > .certificate-view__print {
+    display: none !important;
+  }
+
+  .certificate-view__head {
+    min-height: 21mm !important;
+    padding: 3mm 5mm !important;
+  }
+
+  .certificate-view__head img {
+    width: 29mm !important;
+    height: 12mm !important;
+  }
+
+  .certificate-view__head h2 { font-size: 15pt !important; }
+  .certificate-view__head p { font-size: 8pt !important; }
+  .certificate-view__card { margin-top: 4mm !important; padding: 4mm 5mm !important; }
+  .certificate-view__card h3 { margin-bottom: 3mm !important; font-size: 11pt !important; }
+  .certificate-view__details { gap: 2mm 8mm !important; font-size: 8.5pt !important; }
+  .certificate-view__details span { font-size: 7pt !important; }
+  .certificate-view__card > p,
+  .certificate-view__card li { font-size: 8pt !important; line-height: 1.55 !important; }
+  .certificate-view__warranty-table-wrap { margin: 2mm 0 !important; }
+  .certificate-view__warranty-table { min-width: 0 !important; font-size: 7.5pt !important; }
+  .certificate-view__warranty-table th,
+  .certificate-view__warranty-table td { padding: 2mm 2.5mm !important; }
+}
+
+/* الوضع النهائي: صفحة طباعة واحدة تشمل الشروط التفصيلية */
+@media print {
+  .certificate-view {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+    padding: 6mm !important;
+    box-sizing: border-box !important;
+  }
+
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card,
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    min-height: 0 !important;
+    margin-top: 3mm !important;
+    padding: 3mm 4mm !important;
+    background: transparent !important;
+    border-top: 0 !important;
+  }
+
+  .certificate-print-page__head {
+    padding: 3mm 4mm !important;
+  }
+
+  .certificate-print-page__head h2 {
+    font-size: 11pt !important;
+  }
+
+  .certificate-print-page__head p,
+  .certificate-print-page__content,
+  .certificate-print-page__content * {
+    font-size: 7pt !important;
+    line-height: 1.35 !important;
+  }
+
+  .certificate-print-page__content {
+    margin-top: 2mm !important;
+    padding: 3mm 4mm !important;
+  }
+}
+
+
+
+/* طباعة الشهادة: صفحتان مستقلتان دون تكرار محتوى ال��فحة ��لأولى */
+@media print {
+  /* لا نخفي حاوية النافذة الأم؛ إخفاؤها يجعل صفحة الطباعة بيضاء */
+  [role='dialog'] { display: block !important; position: static !important; }
+  [role='dialog'] > div:first-child { display: none !important; }
+  .certificate-view { display: block !important; width: 210mm !important; max-width: none !important; min-height: 0 !important; margin: 0 !important; padding: 8mm !important; background: #dff2ff !important; color: #164f38 !important; box-sizing: border-box !important; }
+  .certificate-view__head,
+  .certificate-view__card { display: block !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  .certificate-view__card:nth-of-type(4) { display: none !important; }
+  .certificate-view__verify,
+  .certificate-view__print { display: none !important; }
+  .certificate-view > .certificate-print-page { display: block !important; break-before: page !important; page-break-before: always !important; min-height: 277mm !important; margin: 0 !important; padding: 8mm !important; box-sizing: border-box !important; background: #dff2ff !important; }
+  .certificate-view > .certificate-print-page .certificate-print-page__head,
+  .certificate-view > .certificate-print-page .certificate-print-page__content { display: block !important; visibility: visible !important; }
+}
+
+.certificate-print-page { display: none; }
+
+@media print {
+  /* الطباعة تعتمد قالب العرض الحالي مرة واحدة، مع صفحة ثانية مستقلة */
+  body * { visibility: hidden !important; }
+  [role='dialog'], [role='dialog'] * { visibility: visible !important; }
+  .certificate-document, .certificate-print-page { display: none !important; }
+  .certificate-view { display: block !important; visibility: visible !important; width: 210mm !important; max-width: none !important; margin: 0 !important; padding: 8mm !important; background: #dff2ff !important; box-sizing: border-box !important; }
+  .certificate-view > * { visibility: visible !important; }
+  .certificate-view__head, .certificate-view__card { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .certificate-view__verify, .certificate-view__print { display: none !important; }
+  .certificate-view__card:nth-of-type(4) { break-before: page !important; page-break-before: always !important; }
+  .certificate-view__card:nth-of-type(4) ~ .certificate-print-page { display: none !important; }
+
+  .certificate-print-page { display: block !important; min-height: 277mm; padding: 10mm; background: #e4f4fb; color: #164f38; box-sizing: border-box; break-before: page; page-break-before: always; }
+  .certificate-print-page__head { display: flex; align-items: center; justify-content: space-between; padding: 6mm; border-radius: 4mm; background: #126b3f; color: #fff; border-bottom: 1mm solid #d71920; }
+  .certificate-print-page__head h2 { margin: 0; font-size: 16pt; }
+  .certificate-print-page__head p { margin: 2mm 0 0; font-size: 9pt; }
+  .certificate-print-page__content { margin-top: 6mm; padding: 8mm; border: .35mm solid #159157; border-radius: 4mm; background: rgba(255,255,255,.82); font-size: 10pt; line-height: 1.9; }
+  .certificate-print-page__content h3, .certificate-print-page__content h4 { color: #145b3b; border-right: .8mm solid #d71920; padding-right: 3mm; }
+  .certificate-print-page__content li { margin-bottom: 2mm; }
+  .certificate-print-page__date { margin-top: 10mm; text-align: left; font-weight: 700; }
+}
+
+/* الإصلاح النهائي: صفحة أولى واحدة وصفحة شروط مستقلة دون إعادة محتوى العرض */
+@media print {
+  .certificate-view {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    isolation: isolate !important;
+  }
+
+  .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2) {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(4),
+  .certificate-view__verify,
+  .certificate-view__print {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 277mm !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    box-sizing: border-box !important;
+    break-before: page !important;
+    page-break-before: always !important;
+    overflow: visible !important;
+  }
+
+  .certificate-view > .certificate-print-page .certificate-print-page__head,
+  .certificate-view > .certificate-print-page .certificate-print-page__content {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+  }
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    background: #e4f4fb !important;
+  }
+
+  .certificate-document {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    box-sizing: border-box;
+    background: #e4f4fb !important;
+    color: #164f38 !important;
+    font-family: Arial, sans-serif;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .certificate-letterhead {
+    min-height: 25mm !important;
+    box-sizing: border-box;
+    padding: 4mm 5mm !important;
+    background: #126b3f !important;
+    border-radius: 5mm !important;
+    direction: ltr !important;
+  }
+
+  .certificate-letterhead img {
+    width: 31mm !important;
+    height: 15mm !important;
+    object-fit: contain;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .certificate-letterhead p:first-child {
+    font-size: 17pt !important;
+  }
+
+  .certificate-red-rule {
+    height: 1mm !important;
+    margin: -1mm 5mm 4mm !important;
+    background: #d71920 !important;
+  }
+
+  .certificate-card,
+  .certificate-document > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+    margin: 0 0 5mm !important;
+    padding: 5mm !important;
+    border: 0.35mm solid #159157 !important;
+    border-radius: 4mm !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    break-inside: avoid;
+  }
+
+  .certificate-section-title,
+  .certificate-document h3,
+  .certificate-document h4 {
+    margin: 0 0 4mm !important;
+    padding-right: 3mm !important;
+    border-right: 0.8mm solid #d71920 !important;
+    color: #145b3b !important;
+    font-size: 13pt !important;
+  }
+
+  .certificate-document table {
+    width: 100% !important;
+    margin: 4mm 0 !important;
+    font-size: 9pt !important;
+  }
+
+  .certificate-document th,
+  .certificate-document td {
+    padding: 2.5mm 3mm !important;
+    border: 0.25mm solid #c8d1d3 !important;
+  }
+
+  .certificate-document th {
+    background: #0b5738 !important;
+    color: white !important;
+  }
+
+  .certificate-page-break {
+    break-before: page !important;
+    page-break-before: always !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  [role='dialog'] > div:first-child,
+  [role='dialog'] button {
+    display: none !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  /* قالب الطباعة المرجعي: الصفحة الأولى كاملة ثم الشروط في صفحة ثانية */
+  body {
+    background: #e4f4fb !important;
+  }
+
+  .certificate-document {
+    display: block !important;
+    visibility: visible !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 5mm 7mm !important;
+    box-sizing: border-box !important;
+    background: #e4f4fb !important;
+    color: #164f38 !important;
+    font-family: Arial, sans-serif !important;
+    direction: rtl !important;
+  }
+
+  .certificate-document * {
+    visibility: visible !important;
+  }
+
+  .certificate-document > .certificate-letterhead,
+  .certificate-document > .certificate-red-rule,
+  .certificate-document > div {
+    visibility: visible !important;
+  }
+
+  .certificate-document > .certificate-letterhead {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .certificate-document .certificate-page-break {
+    display: block !important;
+    break-before: page !important;
+    page-break-before: always !important;
+    min-height: 297mm !important;
+    padding-top: 5mm !important;
+  }
+
+  .certificate-document .certificate-page-break + * {
+    break-inside: avoid !important;
+  }
+
+  .certificate-document .print-actions,
+  .certificate-document button {
+    display: none !important;
+  }
+
+  .certificate-letterhead {
+    height: 24mm !important;
+    min-height: 24mm !important;
+    padding: 4mm 5mm !important;
+    background: #126b3f !important;
+    border-radius: 4mm !important;
+    direction: ltr !important;
+  }
+
+  .certificate-letterhead img {
+    width: 27mm !important;
+    height: 14mm !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .certificate-letterhead p:first-child {
+    font-size: 16pt !important;
+  }
+
+  .certificate-red-rule {
+    height: 1mm !important;
+    margin: -1mm 5mm 4mm !important;
+    background: #d71920 !important;
+  }
+
+  .certificate-card,
+  .certificate-document > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+    margin-bottom: 4mm !important;
+    padding: 5mm !important;
+    border: 0.35mm solid #159157 !important;
+    border-radius: 4mm !important;
+    background: rgba(255,255,255,.78) !important;
+    break-inside: avoid !important;
+  }
+
+  .certificate-document table {
+    width: 100% !important;
+    margin: 3mm 0 !important;
+    font-size: 9pt !important;
+    border-collapse: collapse !important;
+  }
+
+  .certificate-document th,
+  .certificate-document td {
+    padding: 2.2mm 3mm !important;
+    border: .25mm solid #c8d1d3 !important;
+  }
+
+  .certificate-document th {
+    background: #0b5738 !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+
+  .certificate-page-break {
+    break-before: page !important;
+    page-break-before: always !important;
+    min-height: 0 !important;
+    border: 0 !important;
+  }
+
+  [role='dialog'],
+  [role='dialog'] * {
+    visibility: visible;
+  }
+
+  [role='dialog'] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 210mm !important;
+    max-width: none !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .certificate-document {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm !important;
+    box-sizing: border-box;
+    font-size: 13px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: var(--card) !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .certificate-letterhead {
+    background: #147a43 !important;
+    color: #ffffff !important;
+    border-radius: 7mm !important;
+  }
+
+  .certificate-letterhead img {
+    background: #ffffff;
+    border-radius: 2mm;
+    padding: 2mm;
+  }
+
+  .certificate-red-rule {
+    height: 1.2mm;
+    margin: -3mm 0 2mm;
+    border-radius: 1mm;
+    background: #d71920;
+  }
+
+  .certificate-page-break {
+    break-before: page;
+    page-break-before: always;
+    min-height: 8mm;
+  }
+
+  .certificate-section-title {
+    color: #147a43 !important;
+  }
+
+  /* تثبيت قالب الطباعة النهائي: الصفحة الأولى مرة واحدة ثم الشروط التفصيلية */
+  .certificate-view { display: block !important; }
+  .certificate-view > .certificate-view__card:nth-of-type(4) { display: none !important; }
+  .certificate-view > .certificate-print-page { display: block !important; break-before: page !important; page-break-before: always !important; min-height: 277mm !important; }
+  .certificate-view > .certificate-print-page .certificate-print-page__content { display: block !important; }
+
+  .certificate-document::after {
+    content: 'شهادة ضمان صادرة من نظام مواعيد مداد';
+    display: block;
+    margin-top: 10mm;
+    border-top: 1px solid var(--border);
+    padding-top: 4mm;
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted-foreground);
+  }
+
+  [role='dialog'] > div:first-child,
+  [role='dialog'] button {
+    display: none !important;
+  }
+
+  .certificate-document {
+    direction: rtl;
+    min-height: 297mm;
+  }
+
+  .certificate-page {
+    min-height: 260mm;
+    break-inside: avoid;
+  }
+
+  .certificate-page + .certificate-page {
+    break-before: page;
+    page-break-before: always;
+    padding-top: 0;
+  }
+
+  .certificate-card {
+    break-inside: avoid;
+    border: 1px solid #147a43 !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  /* قالب الطباعة المبني على نموذج HTML المرجعي */
+  .certificate-document {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 8mm !important;
+    background: #dff2ff !important;
+    font-family: Arial, sans-serif !important;
+    direction: rtl !important;
+  }
+
+  .certificate-document > .certificate-letterhead {
+    height: auto !important;
+    min-height: 25mm !important;
+    margin: 0 0 4mm !important;
+    padding: 5mm 6mm !important;
+    border-radius: 5mm !important;
+    background: linear-gradient(135deg, #0a4f2f, #0f7f45) !important;
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .certificate-document > .certificate-letterhead img {
+    order: 2 !important;
+    width: 29mm !important;
+    height: auto !important;
+    max-height: 15mm !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .certificate-document > .certificate-letterhead > div {
+    order: 1 !important;
+    text-align: right !important;
+  }
+
+  .certificate-document > .certificate-letterhead p:first-child {
+    margin: 0 !important;
+    font-size: 19pt !important;
+    line-height: 1.35 !important;
+  }
+
+  .certificate-document > .certificate-red-rule {
+    height: 1.2mm !important;
+    margin: -7mm 6mm 5mm !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: #d40000 !important;
+  }
+
+  .certificate-document > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+    margin: 0 0 5mm !important;
+    padding: 6mm !important;
+    border: 0.4mm solid #0f7f45 !important;
+    border-radius: 4mm !important;
+    background: rgba(255,255,255,.8) !important;
+    box-shadow: none !important;
+  }
+
+  .certificate-document h3,
+  .certificate-document h4,
+  .certificate-document .certificate-section-title {
+    margin: 0 0 5mm !important;
+    border-right: 1mm solid #d40000 !important;
+    padding-right: 3mm !important;
+    font-size: 14pt !important;
+  }
+
+  .certificate-document table {
+    margin-top: 3mm !important;
+    border-collapse: collapse !important;
+  }
+
+  .certificate-document table th,
+  .certificate-document table td {
+    padding: 2.5mm 3mm !important;
+    font-size: 9.5pt !important;
+    text-align: center !important;
+  }
+
+  .certificate-document table th {
+    background: #0a4f2f !important;
+    color: #fff !important;
+  }
+
+  .certificate-document .certificate-page-break {
+    break-before: page !important;
+    page-break-before: always !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* مطابقة قالب HTML المرجعي: هوامش 20px، بطاقات 900px، ورأسية منفصلة عن الخط */
+  .certificate-document {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 7.06mm !important;
+    background: #dff2ff !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .certificate-document > .certificate-letterhead {
+    min-height: 25mm !important;
+    margin: 0 0 3.97mm !important;
+    padding: 6.61mm !important;
+    border-radius: 4.76mm !important;
+    background: linear-gradient(135deg, #0a4f2f, #0f7f45) !important;
+    direction: ltr !important;
+  }
+
+  .certificate-document > .certificate-letterhead img {
+    width: 29.1mm !important;
+    height: auto !important;
+    max-height: 15mm !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .certificate-document > .certificate-red-rule {
+    height: 1.32mm !important;
+    margin: 2.65mm 5.29mm 3.97mm !important;
+    background: #d40000 !important;
+  }
+
+  .certificate-document > div:not(.certificate-letterhead):not(.certificate-red-rule):not(.certificate-page-break) {
+    margin: 0 0 5.29mm !important;
+    padding: 6.61mm !important;
+    border: 0.53mm solid #0f7f45 !important;
+    border-radius: 4.23mm !important;
+    background: rgba(255,255,255,.8) !important;
+    box-shadow: 0 2.12mm 6.61mm rgba(0,0,0,.07) !important;
+  }
+
+  .certificate-document table {
+    width: 100% !important;
+    margin-top: 2.65mm !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+  }
+
+  .certificate-document table th,
+  .certificate-document table td {
+    padding: 2.12mm 2.65mm !important;
+    font-size: 9.5pt !important;
+    text-align: center !important;
+  }
+
+  .certificate-document table th {
+    background: #0a4f2f !important;
+    color: #fff !important;
+  }
+
+  /* نموذج HTML المرجعي لا يحتوي بطاقة رقم منفصلة أسفل الرأس */
+  .certificate-document > .certificate-red-rule + div {
+    display: none !important;
+  }
+
+  .certificate-document > .certificate-red-rule + div + div {
+    display: block !important;
+    min-height: 35mm !important;
+  }
+
+  .certificate-document > .certificate-red-rule + div + div + div {
+    display: block !important;
+  }
+}
+
+/* قالب الطباعة الفعلي المستخدم في نافذة الشهادة */
+@media print {
+  /* إخراج قالب العرض فقط؛ إلغاء أي حاويات قديمة تمنع فصل الصفحات */
+  .certificate-document,
+  .certificate-print-page { display: none !important; }
+  body * { visibility: hidden !important; }
+  [role='dialog'],
+  [role='dialog'] * { visibility: visible !important; }
+  [role='dialog'] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 210mm !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+  [role='dialog'] > div:first-child,
+  [role='dialog'] button,
+  [role='dialog'] + * { display: none !important; }
+  .certificate-view {
+    display: block !important;
+    width: 210mm !important;
+    max-width: none !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 7mm !important;
+    box-sizing: border-box !important;
+    background: #dff2ff !important;
+    color: #145b3b !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+  .certificate-view__head {
+    min-height: 25mm !important;
+    padding: 5mm 6mm 6mm !important;
+    box-sizing: border-box !important;
+    background: #126b3f !important;
+    color: #fff !important;
+    border: 0 !important;
+    border-radius: 5mm !important;
+    direction: ltr !important;
+  }
+  .certificate-view__head img {
+    width: 29mm !important;
+    height: 15mm !important;
+    object-fit: contain !important;
+    background: transparent !important;
+  }
+  .certificate-view__head > div { direction: rtl !important; text-align: right !important; }
+  .certificate-view__head h2 { font-size: 18pt !important; }
+  .certificate-view__head p { font-size: 9pt !important; }
+  .certificate-view__card {
+    margin-top: 5mm !important;
+    padding: 6mm !important;
+    border: .4mm solid #0f7f45 !important;
+    border-radius: 4mm !important;
+    background: rgba(255,255,255,.8) !important;
+    box-shadow: none !important;
+    break-inside: avoid !important;
+  }
+  .certificate-view__card h3 {
+    margin: 0 0 5mm !important;
+    border-right: 1mm solid #d40000 !important;
+    padding-right: 3mm !important;
+    color: #145b3b !important;
+    font-size: 14pt !important;
+  }
+  .certificate-view__details { font-size: 10pt !important; }
+  .certificate-view__details span { font-size: 8pt !important; }
+  .certificate-view__card > p,
+  .certificate-view__card li { color: #29483b !important; font-size: 9pt !important; line-height: 1.8 !important; }
+  .certificate-view__warranty-table-wrap { overflow: visible !important; }
+  .certificate-view__warranty-table { min-width: 0 !important; font-size: 9pt !important; }
+  .certificate-view__warranty-table th,
+  .certificate-view__warranty-table td { padding: 2.5mm 3mm !important; }
+  .certificate-view__verify { font-size: 9pt !important; }
+  .certificate-view__print { display: none !important; }
+
+  /* فصل إخراج الطباعة إلى صفحتين مستقلتين ومنع تداخل المحتوى */
+  .certificate-view {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .certificate-view__head,
+  .certificate-view__card {
+    position: static !important;
+    transform: none !important;
+  }
+
+  .certificate-view__card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* قالب الطباعة صفحتان ثابتتان: الصفحة الأولى للرأس والمالك والضمان، والثانية للشروط */
+  .certificate-view {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 7mm !important;
+    overflow: visible !important;
+  }
+
+  .certificate-view__head,
+  .certificate-view__card {
+    box-sizing: border-box !important;
+  }
+
+  .certificate-view__head {
+    margin: 0 !important;
+  }
+
+  .certificate-view__card:nth-of-type(1),
+  .certificate-view__card:nth-of-type(2) {
+    margin-top: 4mm !important;
+    margin-bottom: 0 !important;
+  }
+
+  .certificate-view__card:nth-of-type(1) {
+    padding: 4mm !important;
+  }
+
+  .certificate-view__card:nth-of-type(2) {
+    padding: 4mm !important;
+  }
+
+  .certificate-view__card:nth-of-type(4) {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    break-before: page !important;
+    page-break-before: always !important;
+    min-height: 277mm !important;
+    margin: 0 !important;
+    padding: 8mm !important;
+    box-sizing: border-box !important;
+  }
+
+  /* الصفحة الأولى تضم الرأسية وبيانات المالك ونص الضمان والجدول */
+  .certificate-view__head + .certificate-view__card + .certificate-view__card {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* الصفحة الثانية تبدأ بقسم الشروط كاملًا، مع ترك الصفحة الأولى مستقلة */
+  .certificate-view__head + .certificate-view__card + .certificate-view__card + .certificate-view__card {
+    break-before: page !important;
+    page-break-before: always !important;
+    margin-top: 0 !important;
+  }
+
+  .certificate-view__verify {
+    display: none !important;
+  }
+
+  /* الصفحة الأولى: الرأسية + بطاقة المالك + بطاقة الضمان فقط */
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2) {
+    display: block !important;
+    visibility: visible !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* لا نطبع بطاقة الشروط المختصرة ضمن الصفحة الأولى */
+  .certificate-view > .certificate-view__card:nth-of-type(4) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* الصفحة الثان��ة هي قالب الشروط التفصيلية وحده */
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    break-before: page !important;
+    page-break-before: always !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    min-height: 277mm !important;
+    height: 277mm !important;
+    margin: 0 !important;
+    padding: 8mm !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .certificate-view > .certificate-print-page,
+  .certificate-view > .certificate-print-page * {
+    visibility: visible !important;
+  }
+
+  /* الإصلاح الحاسم: لا نستخدم عناصر العرض لتكوين الصفحة الثانية */
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2) {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(4),
+  .certificate-view > .certificate-view__verify,
+  .certificate-view > .certificate-view__print {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    break-before: page !important;
+    page-break-before: always !important;
+    min-height: 277mm !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 8mm !important;
+    overflow: visible !important;
+    background: #dff2ff !important;
+  }
+
+  .certificate-view > .certificate-print-page .certificate-print-page__head,
+  .certificate-view > .certificate-print-page .certificate-print-page__content,
+  .certificate-view > .certificate-print-page .certificate-print-page__content * {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* لا تُستخدم حاوية العرض كصفحة مطبوعة؛ الصفحة الثانية هي العنصر الوحيد الذي يبدأ صفحة جديدة */
+  .certificate-view {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 8mm !important;
+  }
+
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2) {
+    display: block !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(3),
+  .certificate-view > .certificate-view__card:nth-of-type(4),
+  .certificate-view > .certificate-view__verify,
+  .certificate-view > .certificate-view__print {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(3) {
+    display: block !important;
+    visibility: visible !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  .certificate-view {
+    height: 297mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    overflow: hidden !important;
+  }
+}
+
+/* قاعدة نهائية: طباعة صفحة واحدة مع الشروط التفصيلية داخلها */
+@media print {
+  /* قاعدة أخيرة موحّدة: كل الشهادة والشروط في صفحة A4 واحدة */
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body {
+    width: 210mm !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .certificate-view {
+    display: block !important;
+    width: 210mm !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 5mm 7mm !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .certificate-view > .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2),
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 0 2.5mm !important;
+    padding: 3mm 4mm !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .certificate-view > .certificate-print-page .certificate-print-page__head {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page .certificate-print-page__content,
+  .certificate-view > .certificate-print-page .certificate-print-page__content * {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .certificate-view > .certificate-view__card:nth-of-type(3),
+  .certificate-view > .certificate-view__card:nth-of-type(4),
+  .certificate-view__verify,
+  .certificate-view__print,
+  [role='dialog'] > div:first-child,
+  [role='dialog'] button {
+    display: none !important;
+  }
+
+  .certificate-view__head { min-height: 18mm !important; padding: 2mm 4mm !important; }
+  .certificate-view__head img { width: 27mm !important; height: 10mm !important; }
+  .certificate-view__head h2 { font-size: 13pt !important; }
+  .certificate-view__head p { font-size: 7pt !important; }
+  .certificate-view__card h3 { margin-bottom: 2mm !important; font-size: 10pt !important; }
+  .certificate-view__details { gap: 1mm 6mm !important; font-size: 7.5pt !important; }
+  .certificate-view__details span { font-size: 6.5pt !important; }
+  .certificate-view__card > p,
+  .certificate-view__card li,
+  .certificate-print-page__content,
+  .certificate-print-page__content * { font-size: 7pt !important; line-height: 1.3 !important; }
+  .certificate-view__warranty-table { font-size: 6.5pt !important; }
+  .certificate-view__warranty-table th,
+  .certificate-view__warranty-table td { padding: 1.5mm 2mm !important; }
+}
+
+/* آخر قاعدة للطباعة: صفحة واحدة فعلية تشمل الشروط التفصيلية */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body { width: 210mm !important; height: 297mm !important; margin: 0 !important; overflow: hidden !important; }
+  body * { visibility: hidden !important; }
+  [role="dialog"], [role="dialog"] .certificate-view, [role="dialog"] .certificate-view * { visibility: visible !important; }
+  [role="dialog"] { display: block !important; position: static !important; width: 210mm !important; height: 297mm !important; overflow: hidden !important; }
+  [role="dialog"] > div:first-child,
+  .certificate-view__verify,
+  .certificate-view__print { display: none !important; }
+
+  .certificate-view {
+    display: block !important;
+    width: 280mm !important;
+    height: 396mm !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 6mm 9mm !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    zoom: 0.75 !important;
+    transform: none !important;
+    background: #e4f4fb !important;
+  }
+
+  .certificate-view__head,
+  .certificate-view > .certificate-view__card:nth-of-type(1),
+  .certificate-view > .certificate-view__card:nth-of-type(2),
+  .certificate-view > .certificate-print-page {
+    display: block !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 0 3mm !important;
+    padding: 4mm 5mm !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .certificate-view > .certificate-print-page {
+    border: 0 !important;
+    background: transparent !important;
+  }
+  .certificate-print-page__head { display: none !important; }
+  .certificate-print-page__content,
+  .certificate-print-page__content * { display: block !important; visibility: visible !important; }
+  .certificate-view > .certificate-view__card:nth-of-type(n+3) { display: none !important; }
+  .certificate-view__head { min-height: 20mm !important; }
+  .certificate-view__head img { width: 30mm !important; height: 12mm !important; }
+  .certificate-view__head h2 { font-size: 14pt !important; }
+  .certificate-view__head p { font-size: 7pt !important; }
+  .certificate-view__card h3 { margin-bottom: 2mm !important; font-size: 10pt !important; }
+  .certificate-view__card > p,
+  .certificate-view__card li,
+  .certificate-print-page__content,
+  .certificate-print-page__content * { font-size: 7pt !important; line-height: 1.25 !important; }
+  .certificate-view__details { gap: 1mm 6mm !important; font-size: 7.5pt !important; }
+  .certificate-view__warranty-table { font-size: 6.5pt !important; }
+  .certificate-view__warranty-table th,
+  .certificate-view__warranty-table td { padding: 1.5mm 2mm !important; }
+}
+
+/* التصحيح الحاسم: الشروط ضمن تدفق الصفحة نفسها دون فاصل أو حاوية ثانية */
+@media print {
+  .certificate-view > .certificate-print-page {
+    display: contents !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .certificate-view > .certificate-print-page > .certificate-print-page__head {
+    display: none !important;
+  }
+
+  .certificate-view > .certificate-print-page > .certificate-print-page__content {
+    display: block !important;
+    width: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 1mm 0 0 !important;
+    padding: 2mm 4mm !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: visible !important;
+  }
+}
+
+/* قالب طباعة جديد مستقل: صفحة A4 واحدة فقط */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body { width: 210mm !important; height: 297mm !important; margin: 0 !important; overflow: hidden !important; }
+  body * { visibility: hidden !important; }
+  [role="dialog"], [role="dialog"] * { visibility: visible !important; }
+  [role="dialog"] { display: block !important; position: static !important; width: 210mm !important; height: 297mm !important; max-width: none !important; overflow: hidden !important; padding: 0 !important; background: #dff2ff !important; }
+  [role="dialog"] > div:first-child, [role="dialog"] button, .certificate-view__verify, .certificate-view__print { display: none !important; }
+  .certificate-view { display: block !important; width: 210mm !important; height: 297mm !important; max-width: none !important; min-height: 0 !important; margin: 0 !important; padding: 5mm 7mm !important; box-sizing: border-box !important; overflow: hidden !important; zoom: .62 !important; background: #dff2ff !important; color: #145b3b !important; }
+  .certificate-view__head, .certificate-view > .certificate-view__card:nth-of-type(1), .certificate-view > .certificate-view__card:nth-of-type(2), .certificate-view > .certificate-print-page { display: block !important; width: auto !important; height: auto !important; min-height: 0 !important; max-height: none !important; margin: 0 0 2mm !important; padding: 3mm 4mm !important; box-sizing: border-box !important; overflow: visible !important; break-before: auto !important; page-break-before: auto !important; break-after: avoid !important; page-break-after: avoid !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  .certificate-view__head { min-height: 18mm !important; padding: 2mm 4mm !important; background: #126b3f !important; color: #fff !important; }
+  .certificate-view__head img { width: 28mm !important; height: 11mm !important; }
+  .certificate-view__head h2 { font-size: 13pt !important; }
+  .certificate-view__head p { font-size: 7pt !important; }
+  .certificate-view__card h3 { margin-bottom: 2mm !important; font-size: 10pt !important; }
+  .certificate-view__details { gap: 1mm 6mm !important; font-size: 7.5pt !important; }
+  .certificate-view__details span { font-size: 6pt !important; }
+  .certificate-view__card > p, .certificate-view__card li { font-size: 6.5pt !important; line-height: 1.2 !important; }
+  .certificate-view__warranty-table { min-width: 0 !important; font-size: 6pt !important; }
+  .certificate-view__warranty-table th, .certificate-view__warranty-table td { padding: 1mm 1.5mm !important; }
+  .certificate-view > .certificate-view__card:nth-of-type(3), .certificate-view > .certificate-view__card:nth-of-type(4) { display: none !important; }
+  .certificate-view > .certificate-print-page { display: contents !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__head { display: none !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content { display: block !important; margin: 1mm 0 0 !important; padding: 2mm 4mm !important; font-size: 6pt !important; line-height: 1.15 !important; break-before: auto !important; page-break-before: auto !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content * { font-size: inherit !important; line-height: inherit !important; }
+}
+
+/* طباعة الشهادة في صفحة واحدة فقط */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body,   [role="dialog"] { display: block !important; position: fixed !important; inset: 0 !important; width: 210mm !important; height: 297mm !important; max-width: 210mm !important; max-height: 297mm !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; }
+  .certificate-view { width: 210mm !important; height: 297mm !important; max-width: 210mm !important; max-height: 297mm !important; min-height: 0 !important; margin: 0 !important; padding: 5mm 7mm !important; box-sizing: border-box !important; overflow: hidden !important; transform: none !important; transform-origin: initial !important; zoom: 1 !important; background: #effaf4 !important; }
+  .certificate-view > .certificate-print-page { display: contents !important; }
+  .certificate-view > .certificate-view__card:nth-of-type(2)::after { display: none !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__head { display: none !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content { display: block !important; margin: 3mm 0 0 !important; padding: 3mm 4mm !important; border-top: 1px solid #159157 !important; font-size: 8.5pt !important; line-height: 1.45 !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content h3 { font-size: 8pt !important; margin: 2mm 0 1mm !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content h4 { font-size: 7pt !important; margin: 1.5mm 0 .5mm !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content p { margin: 1mm 0 !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content ul { margin: 1mm 0 !important; padding-right: 5mm !important; }
+  .certificate-view > .certificate-print-page > .certificate-print-page__content li { margin: .5mm 0 !important; }
+  .certificate-print-page__content h4 { margin: 2mm 0 1mm !important; font-size: 8pt !important; font-weight: 800 !important; color: #075c38 !important; }
+  .certificate-print-page__content p { margin: 1mm 0 !important; }
+  .certificate-print-page__content ul { margin: 1mm 0 !important; padding-right: 5mm !important; }
+  .certificate-print-page__content li { margin: .5mm 0 !important; }
+  .certificate-view > .certificate-view__card:nth-of-type(3), .certificate-view > .certificate-view__card:nth-of-type(3) ~ .certificate-print-page, .certificate-view > .certificate-view__card:nth-of-type(n+4), .certificate-view__verify, .certificate-view__print, [role="dialog"] > div:first-child { display: none !important; }
+  .certificate-view__head { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; min-height: 23mm !important; height: 23mm !important; padding: 3mm 5mm !important; border-radius: 5mm !important; border-bottom: 1.2mm solid #d71920 !important; background: #126b3f !important; color: #fff !important; direction: ltr !important; }
+  .certificate-view__head img { display: block !important; width: 31mm !important; height: 13mm !important; object-fit: contain !important; object-position: left center !important; flex: 0 0 auto !important; align-self: center !important; }
+  .certificate-view__head > div { display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: flex-end !important; height: 100% !important; direction: rtl !important; text-align: right !important; flex: 1 1 auto !important; }
+  .certificate-view__head h2 { margin: 0 !important; font-size: 16pt !important; line-height: 1.15 !important; font-weight: 800 !important; }
+  .certificate-view__head p { margin: 1.5mm 0 0 !important; font-size: 8pt !important; line-height: 1.2 !important; }
+  .certificate-view__details { font-size: 10pt !important; }
+  .certificate-view__details span { font-size: 8pt !important; }
+  .certificate-view__card h3 { font-size: 13pt !important; }
+  .certificate-view__card > p, .certificate-view__card li { font-size: 8.5pt !important; line-height: 1.5 !important; }
+  .certificate-view__warranty-table { font-size: 8pt !important; }
+  .certificate-view__warranty-table th, .certificate-view__warranty-table td { padding: 2.2mm 2.8mm !important; }
+  .certificate-view__details { font-size: 9pt !important; }
+  .certificate-view__details span { font-size: 7pt !important; }
+  .certificate-view__card h3 { font-size: 12pt !important; }
+  .certificate-view__card > p, .certificate-view__card li { font-size: 8pt !important; line-height: 1.45 !important; }
+  .certificate-view__warranty-table { font-size: 7.5pt !important; }
+  .certificate-view__warranty-table th, .certificate-view__warranty-table td { padding: 2mm 2.5mm !important; }
+  .certificate-print-page__content, .certificate-print-page__content p, .certificate-print-page__content li { font-size: 9.5pt !important; line-height: 1.45 !important; }
+  .certificate-print-page__content h3 { font-size: 12pt !important; }
+  .certificate-print-page__content h4 { font-size: 10pt !important; }
+}
+
+/* آخر تصحيح للهيدر: الشعار والعنوان أفقيًا وفي المنتصف العمودي */
+@media print {
+  .certificate-view.certificate-view--screen > header.certificate-view__head {
+    display: block !important;
+    position: relative !important;
+    height: 23mm !important;
+    min-height: 23mm !important;
+    padding: 3mm 5mm !important;
+    direction: ltr !important;
+  }
+  .certificate-view.certificate-view--screen > header.certificate-view__head > img {
+    position: absolute !important;
+    left: 5mm !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    order: initial !important;
+    width: 31mm !important;
+    height: 13mm !important;
+    margin: 0 !important;
+  }
+  .certificate-view.certificate-view--screen > header.certificate-view__head > div {
+    position: absolute !important;
+    right: 5mm !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    order: initial !important;
+    display: flex !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    direction: rtl !important;
+    text-align: right !important;
+  }
+  .certificate-view.certificate-view--screen > header.certificate-view__head h2 { font-size: 16pt !important; line-height: 1.15 !important; margin: 0 !important; }
+  .certificate-view.certificate-view--screen > header.certificate-view__head p { font-size: 8pt !important; line-height: 1.2 !important; margin: 1.5mm 0 0 !important; }
+}
+
+/* إزالة نطاق الضمان من الطباعة فقط، مع إبقاء جدول المدد */
+@media print {
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > h3:first-child,
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > p:nth-of-type(-n+4) {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: revert !important;
+    padding: revert !important;
+    overflow: visible !important;
+  }
+  .certificate-view__warranty-table-wrap ~ h3,
+  .certificate-view__warranty-table-wrap ~ h4,
+  .certificate-view__warranty-table-wrap ~ p,
+  .certificate-view__warranty-table-wrap ~ ul { display: none !important; }
+  /* النص المطلوب حذفه يقع بعد جدول المدد داخل البطاقة نفسها */
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > p:nth-of-type(n+5),
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > h3:not(:first-child),
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > h4,
+  .certificate-view__card:has(.certificate-view__warranty-table-wrap) > ul {
+    display: none !important;
+  }
+  .certificate-print-page,
+  .certificate-print-page__head,
+  .certificate-print-page__content { display: none !important; visibility: hidden !important; }
+  .certificate-view__card:has(table) > p:last-of-type { display: none !important; }
+  .certificate-view__card:has(table) > h3,
+  .certificate-view__card:has(table) > h4,
+  .certificate-view__card:has(table) > ul { display: none !important; }
+}
+
