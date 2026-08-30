@@ -46,7 +46,7 @@ export async function GET() {
       providerId: 'credentials',
       issuer: 'local:credential',
       userId: userId,
-      hashedPassword, // لاحظ الاسم الصحيح
+      password: hashedPassword, // ← ← ← هنا الحل الحقيقي
       createdAt: new Date(),
       updatedAt: new Date(),
     })
