@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { user, account } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 import crypto from 'crypto'
+import bcrypt from 'bcryptjs'
 
 export async function GET() {
   try {
@@ -23,11 +24,8 @@ export async function GET() {
     // إنشاء user.id عشوائي
     const userId = crypto.randomUUID()
 
-    // تشفير كلمة المرور
-    const hashedPassword = crypto
-      .createHash('sha256')
-      .update(password)
-      .digest('hex')
+    // تشفير كلمة المرور بطريقة متوافقة مع BetterAuth
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     // إنشاء المستخدم في جدول user
     await db.insert(user).values({
@@ -48,7 +46,7 @@ export async function GET() {
       providerId: 'credentials',
       issuer: 'local:credential',
       userId: userId,
-      password: hashedPassword,
+      hashedPassword, // لاحظ الاسم الصحيح
       createdAt: new Date(),
       updatedAt: new Date(),
     })
